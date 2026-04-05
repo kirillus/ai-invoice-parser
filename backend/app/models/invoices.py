@@ -54,5 +54,10 @@ class InvoiceListResponse(BaseModel):
   per_page: int
   total_pages: int = 1
 
+class UploadInvoiceResponse(BaseModel):
+  """ Response for invoice upload """
+  id: str
+  filename: str
+  status: str = "uploaded"
 
 
