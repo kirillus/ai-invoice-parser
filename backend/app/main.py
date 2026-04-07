@@ -22,7 +22,7 @@ app.add_middleware(
 app.include_router(
   invoices_router,
   prefix=f"{settings.API_V1_PREFIX}/invoices",
-  tags=[]"invoices"]
+  tags=["invoices"]
 )
 
 

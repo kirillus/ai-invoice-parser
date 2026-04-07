@@ -13,6 +13,7 @@ settings = get_settings()
 invoice_store: dict[str, dict] = {}
 
 
+@router.post("/upload", response_model=UploadInvoiceResponse)
 async def upload_invoice(file: UploadFile = File(...)) -> UploadInvoiceResponse:
   """ Upload an invoice file to the server for processing """
   # 1 validate file extension
@@ -32,7 +33,7 @@ async def upload_invoice(file: UploadFile = File(...)) -> UploadInvoiceResponse:
 
   # save file to disk
   os.makedirs(settings.UPLOAD_DIR, exist_ok=True)
-  invoice_id = str(uuid.uuid4()
+  invoice_id = str(uuid.uuid4())
   file_path = os.path.join(settings.UPLOAD_DIR, f"{invoice_id}.{ext}")
 
   with open(file_path, "wb") as f:
