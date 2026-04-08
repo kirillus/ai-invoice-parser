@@ -1,3 +1,5 @@
+import FileUpload from './components/FileUpload';
+
 function App() {
   return (
     <div className='min-h-screen bg-gray-50'>
@@ -9,8 +11,9 @@ function App() {
       </header>
 
       <main className='max-w-7xl mx-auto py-8 px-6'>
-        {/* FileUpload component will go here (Day 9) */}
-        <div className='bg-white rounded-lg shadow p-8 text-center text-gray-400'>Upload component coming soon...</div>
+        <div className='bg-white rounded-lg shadow p-8 text-center text-gray-400'>
+          <FileUpload onUpload={(file) => console.log('Uploaded file:', file)} />
+        </div>
       </main>
     </div>
   );
