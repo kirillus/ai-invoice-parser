@@ -1,5 +1,22 @@
 import FileUpload from './components/FileUpload';
 
+const [result, setResult] = useState(null);
+const [loading, setLoading] = useState(false);
+const [error, setError] = useState(null);
+
+const handleUpload = async (file) => {
+  setLoading(true);
+  setError(null);
+  try {
+    const data = await uploadInvoice(file);
+    setResult(data);
+  } catch (err) {
+    setError(err.message);
+  } finally {
+    setLoading(false);
+  }
+};
+
 function App() {
   return (
     <div className='min-h-screen bg-gray-50'>
